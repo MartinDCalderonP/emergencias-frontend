@@ -2,6 +2,7 @@
 import styles from "./styles.module.css"
 import { useDate } from "@/contexts/DateContext"
 import CalendarHeader from "../CalendarHeader"
+import Day from "../Day"
 
 const Calendar = () => {
   const { currentMonth } = useDate()
@@ -15,7 +16,7 @@ const Calendar = () => {
     <ol className={styles.calendar}>
       <CalendarHeader />
       {monthDaysArray.map((day) => (
-        <li key={day}>{day}</li>
+        <Day key={day} day={day} />
       ))}
     </ol>
   )
