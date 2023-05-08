@@ -1,16 +1,7 @@
 "use client"
 import styles from "./styles.module.css"
 import { useDate } from "@/contexts/DateContext"
-
-const dayNames = [
-  "Lunes",
-  "Martes",
-  "Miércoles",
-  "Jueves",
-  "Viernes",
-  "Sábado",
-  "Domingo"
-]
+import CalendarHeader from "../CalendarHeader"
 
 const Calendar = () => {
   const { currentMonth } = useDate()
@@ -22,10 +13,7 @@ const Calendar = () => {
 
   return (
     <ol className={styles.calendar}>
-      {dayNames.map((dayName) => (
-        <li key={dayName}>{dayName}</li>
-      ))}
-
+      <CalendarHeader />
       {monthDaysArray.map((day) => (
         <li key={day}>{day}</li>
       ))}
