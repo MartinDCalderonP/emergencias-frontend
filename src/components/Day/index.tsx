@@ -15,9 +15,11 @@ const Day = ({ day, firstDayOfTheMonth, pictureUrl }: DayProps) => {
       {pictureUrl && (
         <Image
           src={pictureUrl}
-          alt="Picture of the day"
+          alt={`Picture of the day ${day} of the month`}
           width={100}
           height={100}
+          quality={75}
+          priority
         />
       )}
     </li>
