@@ -1,5 +1,3 @@
-"use client"
-
 import { useDate } from "@/contexts/DateContext"
 
 const Title = () => {

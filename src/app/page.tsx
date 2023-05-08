@@ -1,3 +1,4 @@
+"use client"
 import { QueryClient, QueryClientProvider } from "react-query"
 import { DateProvider } from "@/contexts/DateContext"
 import Title from "@/components/Title"
