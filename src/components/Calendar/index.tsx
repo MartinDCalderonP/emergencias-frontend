@@ -1,18 +1,13 @@
 import styles from "./styles.module.css"
 import { useDate } from "@/contexts/DateContext"
 import { useQuery } from "react-query"
-import { getPicturesOfTheMonth } from "@/utils/utils"
+import { getMonthDaysArray, getPicturesOfTheMonth } from "@/utils/utils"
 import CalendarHeader from "../CalendarHeader"
 import Day from "../Day"
 
 const Calendar = () => {
   const { currentMonth } = useDate()
-
-  const monthDays = currentMonth.daysInMonth()
-  const monthDaysArray = Array(monthDays)
-    .fill(0)
-    .map((_, i) => i + 1)
-
+  const monthDaysArray = getMonthDaysArray(currentMonth)
   const { data, isLoading, error } = useQuery(["pictures"], () =>
     getPicturesOfTheMonth(currentMonth)
   )

@@ -2,6 +2,12 @@ import { Dayjs } from "dayjs"
 
 const basicFetchUrl = `${process.env.NEXT_PUBLIC_NASA_API_URL}?api_key=${process.env.NEXT_PUBLIC_NASA_API_KEY}`
 
+export const getMonthDaysArray = (currentMonth: Dayjs) => {
+  return Array(currentMonth.daysInMonth())
+    .fill(0)
+    .map((_, i) => i + 1)
+}
+
 const startDate = (currentMonth: Dayjs) =>
   currentMonth.startOf("month").format("YYYY-MM-DD")
 
