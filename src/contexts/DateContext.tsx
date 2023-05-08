@@ -12,7 +12,7 @@ export const DateContext = createContext({
 })
 
 export const DateProvider = ({ children }: { children: ReactNode }) => {
-  const [currentMonth, setCurrentMonth] = useState(dayjs())
+  const [currentMonth, setCurrentMonth] = useState(dayjs("2023-02"))
 
   return (
     <DateContext.Provider value={{ currentMonth, setCurrentMonth }}>
