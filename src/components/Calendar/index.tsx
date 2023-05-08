@@ -7,6 +7,7 @@ import Day from "../Day"
 
 const Calendar = () => {
   const { currentMonth } = useDate()
+  const firstDayOfTheMonth = currentMonth.startOf("month").day()
   const monthDaysArray = getMonthDaysArray(currentMonth)
   const { data, isLoading, error } = useQuery(["pictures"], () =>
     getPicturesOfTheMonth(currentMonth)
@@ -20,7 +21,12 @@ const Calendar = () => {
     <ol className={styles.calendar}>
       <CalendarHeader />
       {monthDaysArray.map((day) => (
-        <Day key={day} day={day} pictureUrl={data[day - 1]?.url} />
+        <Day
+          key={day}
+          day={day}
+          firstDayOfTheMonth={firstDayOfTheMonth}
+          pictureUrl={data[day - 1]?.url}
+        />
       ))}
     </ol>
   )

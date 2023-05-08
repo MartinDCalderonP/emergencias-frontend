@@ -1,15 +1,13 @@
-import { useDate } from "@/contexts/DateContext"
 import Image from "next/image"
 
 interface DayProps {
   day: number
+  firstDayOfTheMonth: number
   pictureUrl: string
 }
 
-const Day = ({ day, pictureUrl }: DayProps) => {
-  const { currentMonth } = useDate()
-  const firstDay = currentMonth.startOf("month").day()
-  const gridColumnStart = day === 1 ? firstDay : undefined
+const Day = ({ day, firstDayOfTheMonth, pictureUrl }: DayProps) => {
+  const gridColumnStart = day === 1 ? firstDayOfTheMonth : undefined
 
   return (
     <li style={{ gridColumnStart }}>
