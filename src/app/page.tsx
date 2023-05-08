@@ -1,9 +1,12 @@
+import { DateProvider } from '@/contexts/DateContext'
+
 const Home = () => {
   return (
-    <main>
-      <h1>Home</h1>
-    </main>
-  );
-};
+    <DateProvider>
+      <main>
+      </main>
+    </DateProvider>
+  )
+}
 
-export default Home;
+export default Home
