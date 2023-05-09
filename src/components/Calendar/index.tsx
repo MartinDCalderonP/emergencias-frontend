@@ -30,7 +30,7 @@ const Calendar = () => {
 
   return (
     <>
-      {data?.length > 0 && (
+      {picturesUrls?.length > 0 && (
         <ol className={styles.calendar}>
           <CalendarHeader />
           <CalendarBody
