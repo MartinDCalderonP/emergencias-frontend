@@ -29,8 +29,8 @@ const DayModal = ({ toggleModal, dayData }: DayModalProps) => {
               src={dayData.hdurl}
               blurDataURL={dayData.url}
               alt={dayData.title}
-              width={200}
-              height={200}
+              width={500}
+              height={500}
               priority={true}
             />
           )}
