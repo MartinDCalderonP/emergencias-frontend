@@ -3,4 +3,9 @@
   height: 6.25rem;
   background-size: cover;
   cursor: pointer;
+  transition: scale 0.3s ease-in-out;
+}
+
+.day:hover {
+  scale: 1.1;
 }
