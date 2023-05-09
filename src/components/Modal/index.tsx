@@ -1,14 +1,15 @@
 import { createPortal } from "react-dom"
-import { useRef } from "react"
+import { ReactNode, useRef } from "react"
 import useOnClickOutside from "@/hooks/useOnClickOutside"
 import styles from "./styles.module.css"
 import CloseIcon from "../CloseIcon"
 
-interface ModalProps {
+export interface ModalProps {
+  children: ReactNode
   toggleModal: () => void
 }
 
-const Modal = ({ toggleModal }: ModalProps) => {
+const Modal = ({ children, toggleModal }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null)
 
   useOnClickOutside(modalRef, toggleModal)
@@ -17,6 +18,7 @@ const Modal = ({ toggleModal }: ModalProps) => {
     <div className={styles.overlay}>
       <div className={`${styles.modal} ${styles.appearModal}`} ref={modalRef}>
         <CloseIcon onClick={toggleModal} />
+        {children}
       </div>
     </div>,
     document.getElementById("modal-root") as HTMLElement
