@@ -1,7 +1,7 @@
 "use client"
 import { QueryClient, QueryClientProvider } from "react-query"
 import { DateProvider } from "@/contexts/DateContext"
-import Title from "@/components/Title"
+import MonthTitle from "@/components/MonthTitle"
 import Calendar from "@/components/Calendar"
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
     <QueryClientProvider client={new QueryClient()}>
       <DateProvider>
         <main>
-          <Title />
+          <MonthTitle />
           <Calendar />
         </main>
       </DateProvider>
