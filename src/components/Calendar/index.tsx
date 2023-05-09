@@ -43,7 +43,10 @@ const Calendar = () => {
           ))}
       </ol>
       {isModalOpen && selectedDay && (
-        <DayModal toggleModal={handleToggleModal} dayData={data[selectedDay]} />
+        <DayModal
+          toggleModal={handleToggleModal}
+          dayData={data[selectedDay - 1]}
+        />
       )}
     </>
   )
