@@ -1,20 +1,10 @@
 import Image from "next/image"
 import styles from "./styles.module.css"
 import Modal, { ModalProps } from "@/components/Modal"
-
-interface DayData {
-  copyright: string
-  date: string
-  explanation: string
-  hdurl: string
-  media_type: string
-  service_version: string
-  title: string
-  url: string
-}
+import { PictureData } from "@/common/interfaces"
 
 interface DayModalProps extends ModalProps {
-  dayData: DayData
+  dayData: PictureData
 }
 
 const DayModal = ({ toggleModal, dayData }: DayModalProps) => {
