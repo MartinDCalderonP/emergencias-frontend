@@ -4,3 +4,10 @@
   gap: 1rem;
   padding: 1rem;
 }
+
+@media (max-width: 768px) {
+  .calendar > li {
+    width: 2rem;
+    height: 2rem;
+  }
+}

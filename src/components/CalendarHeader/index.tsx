@@ -1,3 +1,5 @@
+import styles from "./styles.module.css"
+
 const dayNames = [
   "Lunes",
   "Martes",
@@ -12,7 +14,9 @@ const CalendarHeader = () => {
   return (
     <>
       {dayNames.map((dayName) => (
-        <li key={dayName}>{dayName}</li>
+        <li className={styles.calendarHeaderItem} key={dayName}>
+          {dayName}
+        </li>
       ))}
     </>
   )
