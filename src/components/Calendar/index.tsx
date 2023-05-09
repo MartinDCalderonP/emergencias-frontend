@@ -2,18 +2,19 @@ import { useState } from "react"
 import styles from "./styles.module.css"
 import { useDate } from "@/contexts/DateContext"
 import { useQuery } from "react-query"
-import { getMonthDaysArray, getPicturesOfTheMonth } from "@/utils/utils"
+import { getPicturesOfTheMonth } from "@/utils/utils"
 import CalendarHeader from "../CalendarHeader"
-import Day from "../Day"
+import CalendarBody from "../CalendarBody"
 import DayModal from "../DayModal"
+import { PictureData } from "@/common/interfaces"
 
 const Calendar = () => {
   const { currentMonth } = useDate()
-  const firstDayOfTheMonth = currentMonth.startOf("month").day()
-  const monthDaysArray = getMonthDaysArray(currentMonth)
-  const { data, isLoading, error } = useQuery(["pictures"], () =>
+  const { data, error } = useQuery(["pictures"], () =>
     getPicturesOfTheMonth(currentMonth)
   )
+
+  const picturesUrls: string[] = data?.map((data: PictureData) => data.url)
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedDay, setSelectedDay] = useState<number | null>(null)
@@ -22,26 +23,20 @@ const Calendar = () => {
     setIsModalOpen((prevState) => !prevState)
   }
 
-  if (isLoading) return <p>Loading...</p>
-
   if (error) return <p>Something went wrong...</p>
 
   return (
     <>
-      <ol className={styles.calendar}>
-        <CalendarHeader />
-        {data &&
-          monthDaysArray.map((day) => (
-            <Day
-              key={day}
-              day={day}
-              firstDayOfTheMonth={firstDayOfTheMonth}
-              pictureUrl={data[day - 1]?.url}
-              setSelectedDay={setSelectedDay}
-              handleToggleModal={handleToggleModal}
-            />
-          ))}
-      </ol>
+      {data?.length > 0 && (
+        <ol className={styles.calendar}>
+          <CalendarHeader />
+          <CalendarBody
+            handleToggleModal={handleToggleModal}
+            picturesUrls={picturesUrls}
+            setSelectedDay={setSelectedDay}
+          />
+        </ol>
+      )}
       {isModalOpen && selectedDay && (
         <DayModal
           toggleModal={handleToggleModal}
