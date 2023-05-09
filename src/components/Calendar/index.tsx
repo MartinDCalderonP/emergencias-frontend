@@ -3,14 +3,15 @@ import styles from "./styles.module.css"
 import { useDate } from "@/contexts/DateContext"
 import { useQuery } from "react-query"
 import { getPicturesOfTheMonth } from "@/utils/utils"
-import CalendarHeader from "../CalendarHeader"
-import CalendarBody from "../CalendarBody"
-import DayModal from "../DayModal"
+import CalendarHeader from "@/components/CalendarHeader"
+import CalendarBody from "@/components/CalendarBody"
+import DayModal from "@/components/DayModal"
+import Loader from "@/components/Loader"
 import { PictureData } from "@/common/interfaces"
 
 const Calendar = () => {
   const { currentMonth } = useDate()
-  const { data, error } = useQuery(["pictures"], () =>
+  const { data, isLoading, error } = useQuery(["pictures"], () =>
     getPicturesOfTheMonth(currentMonth)
   )
 
@@ -22,6 +23,8 @@ const Calendar = () => {
   const handleToggleModal = () => {
     setIsModalOpen((prevState) => !prevState)
   }
+
+  if (isLoading) return <Loader />
 
   if (error) return <p>Something went wrong...</p>
 
