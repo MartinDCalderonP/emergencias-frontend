@@ -28,6 +28,12 @@ export const getPicturesOfTheMonth = async (currentMonth: Dayjs) => {
   }
 }
 
-export const capitalizeFirstLetter = (string: string) => {
+const capitalizeFirstLetter = (string: string) => {
   return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+export const getFormattedMonth = (currentMonth: Dayjs) => {
+  const month = currentMonth.format("MMMM YYYY")
+  const capitalizedMonth = capitalizeFirstLetter(month)
+  return capitalizedMonth
 }
