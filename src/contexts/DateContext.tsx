@@ -4,10 +4,12 @@ import "dayjs/locale/es"
 
 dayjs.locale("es")
 
-export const DateContext = createContext({
-  currentMonth: dayjs(),
-  setCurrentMonth: (date: dayjs.Dayjs) => {}
-})
+type Context = {
+  currentMonth: dayjs.Dayjs
+  setCurrentMonth: (month: dayjs.Dayjs) => void
+}
+
+export const DateContext = createContext<Context>({} as Context)
 
 export const DateProvider = ({ children }: { children: ReactNode }) => {
   const [currentMonth, setCurrentMonth] = useState(dayjs("2023-02"))
