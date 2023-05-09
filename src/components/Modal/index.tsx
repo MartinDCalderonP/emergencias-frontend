@@ -5,7 +5,7 @@ import styles from "./styles.module.css"
 import CloseIcon from "../CloseIcon"
 
 export interface ModalProps {
-  children: ReactNode
+  children?: ReactNode
   toggleModal: () => void
 }
 
