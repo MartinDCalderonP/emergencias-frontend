@@ -17,8 +17,6 @@ const DayModal = ({ toggleModal, dayData }: DayModalProps) => {
           {dayData.media_type === "image" && (
             <Image
               src={dayData.hdurl}
-              placeholder="blur"
-              blurDataURL={`data:image/svg+xml;base64,${dayData.url}`}
               alt={dayData.title}
               width={500}
               height={500}
