@@ -1,33 +1,30 @@
-import { useState } from "react"
+import { Dispatch, SetStateAction } from "react"
 import styles from "./styles.module.css"
-import Modal from "../Modal"
+
 interface DayProps {
   day: number
   firstDayOfTheMonth: number
   pictureUrl: string
+  setSelectedDay: Dispatch<SetStateAction<number | null>>
 }
 
-const Day = ({ day, firstDayOfTheMonth, pictureUrl }: DayProps) => {
+const Day = ({
+  day,
+  firstDayOfTheMonth,
+  pictureUrl,
+  setSelectedDay
+}: DayProps) => {
   const gridColumnStart = day === 1 ? firstDayOfTheMonth : undefined
   const backgroundImage = pictureUrl ? `url(${pictureUrl})` : undefined
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const handleToggleModal = () => {
-    setIsModalOpen((prevState) => !prevState)
-  }
-
   return (
-    <>
-      <li
-        className={styles.day}
-        onClick={handleToggleModal}
-        style={{ gridColumnStart, backgroundImage }}
-      >
-        {day}
-      </li>
-      {isModalOpen && <Modal toggleModal={handleToggleModal} />}
-    </>
+    <li
+      className={styles.day}
+      onClick={() => setSelectedDay(day)}
+      style={{ gridColumnStart, backgroundImage }}
+    >
+      {day}
+    </li>
   )
 }
 
