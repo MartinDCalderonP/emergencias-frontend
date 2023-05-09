@@ -16,7 +16,6 @@ const CalendarBody = ({
 }: CalendarBodyProps) => {
   const { currentMonth } = useDate()
   const monthDaysArray = getMonthDaysArray(currentMonth)
-  const firstDayOfTheMonth = currentMonth.startOf("month").day()
 
   return (
     <>
@@ -24,7 +23,6 @@ const CalendarBody = ({
         <Day
           key={day}
           day={day}
-          firstDayOfTheMonth={firstDayOfTheMonth}
           pictureUrl={picturesUrls[day - 1]}
           setSelectedDay={setSelectedDay}
           handleToggleModal={handleToggleModal}

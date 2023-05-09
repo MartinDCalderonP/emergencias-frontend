@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from "react"
 import styles from "./styles.module.css"
+import { useDate } from "@/contexts/DateContext"
 
 interface DayProps {
   day: number
-  firstDayOfTheMonth: number
   pictureUrl: string
   setSelectedDay: Dispatch<SetStateAction<number | null>>
   handleToggleModal: () => void
@@ -11,11 +11,12 @@ interface DayProps {
 
 const Day = ({
   day,
-  firstDayOfTheMonth,
   pictureUrl,
   setSelectedDay,
   handleToggleModal
 }: DayProps) => {
+  const { currentMonth } = useDate()
+  const firstDayOfTheMonth = currentMonth.startOf("month").day()
   const gridColumnStart = day === 1 ? firstDayOfTheMonth : undefined
   const backgroundImage = pictureUrl ? `url(${pictureUrl})` : undefined
 
