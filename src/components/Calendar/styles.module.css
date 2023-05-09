@@ -1,13 +1,15 @@
 .calendar {
+  width: 100%;
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 1fr;
   gap: 1rem;
   padding: 1rem;
 }
 
 @media (max-width: 768px) {
-  .calendar > li {
-    width: 2rem;
-    height: 2rem;
+  .calendar {
+    grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 1fr;
   }
 }
