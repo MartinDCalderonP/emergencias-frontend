@@ -10,6 +10,8 @@
 
 @media (max-width: 768px) {
   .calendar {
-    grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 1fr;
+    height: 50vh;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0.25rem;
   }
 }
