@@ -10,15 +10,12 @@ import Loader from "@/components/Loader"
 import { PictureData } from "@/common/interfaces"
 
 const Calendar = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedDay, setSelectedDay] = useState<number | null>(null)
   const { currentMonth } = useDate()
   const { data, isLoading, error } = useQuery(["pictures"], () =>
     getPicturesOfTheMonth(currentMonth)
   )
-
-  const picturesUrls: string[] = data?.map((data: PictureData) => data.url)
-
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedDay, setSelectedDay] = useState<number | null>(null)
 
   const handleToggleModal = () => {
     setIsModalOpen((prevState) => !prevState)
@@ -27,6 +24,8 @@ const Calendar = () => {
   if (isLoading) return <Loader />
 
   if (error) return <p>Something went wrong...</p>
+
+  const picturesUrls: string[] = data?.map((data: PictureData) => data.url)
 
   return (
     <>
