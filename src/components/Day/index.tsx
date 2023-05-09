@@ -6,21 +6,28 @@ interface DayProps {
   firstDayOfTheMonth: number
   pictureUrl: string
   setSelectedDay: Dispatch<SetStateAction<number | null>>
+  handleToggleModal: () => void
 }
 
 const Day = ({
   day,
   firstDayOfTheMonth,
   pictureUrl,
-  setSelectedDay
+  setSelectedDay,
+  handleToggleModal
 }: DayProps) => {
   const gridColumnStart = day === 1 ? firstDayOfTheMonth : undefined
   const backgroundImage = pictureUrl ? `url(${pictureUrl})` : undefined
 
+  const handleDayClick = () => {
+    setSelectedDay(day)
+    handleToggleModal()
+  }
+
   return (
     <li
       className={styles.day}
-      onClick={() => setSelectedDay(day)}
+      onClick={handleDayClick}
       style={{ gridColumnStart, backgroundImage }}
     >
       {day}

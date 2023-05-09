@@ -38,6 +38,7 @@ const Calendar = () => {
               firstDayOfTheMonth={firstDayOfTheMonth}
               pictureUrl={data[day - 1]?.url}
               setSelectedDay={setSelectedDay}
+              handleToggleModal={handleToggleModal}
             />
           ))}
       </ol>
