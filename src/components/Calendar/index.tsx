@@ -20,14 +20,15 @@ const Calendar = () => {
   return (
     <ol className={styles.calendar}>
       <CalendarHeader />
-      {monthDaysArray.map((day) => (
-        <Day
-          key={day}
-          day={day}
-          firstDayOfTheMonth={firstDayOfTheMonth}
-          pictureUrl={data[day - 1]?.url}
-        />
-      ))}
+      {data &&
+        monthDaysArray.map((day) => (
+          <Day
+            key={day}
+            day={day}
+            firstDayOfTheMonth={firstDayOfTheMonth}
+            pictureUrl={data[day - 1]?.url}
+          />
+        ))}
     </ol>
   )
 }
