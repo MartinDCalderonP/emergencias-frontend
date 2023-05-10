@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react"
 import { useDate } from "@/contexts/DateContext"
 import { getMonthDaysArray } from "@/utils/utils"
-import Day from "@/components/Day"
+import Day from "./Day"
 
 interface CalendarBodyProps {
   handleToggleModal: () => void
