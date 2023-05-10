@@ -1,26 +1,17 @@
-import { useState } from "react"
 import styles from "./styles.module.css"
 import { useDate } from "@/contexts/DateContext"
 import { useQuery } from "react-query"
 import { getPicturesOfTheMonth } from "@/utils/utils"
 import CalendarHeader from "./CalendarHeader"
 import CalendarBody from "./CalendarBody"
-import DayModal from "./DayModal"
 import Loader from "@/components/Loader"
 
 const Calendar = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedDay, setSelectedDay] = useState<number | null>(null)
   const { currentDate } = useDate()
-  const { data, isFetching, error } = useQuery(["pictures", currentDate], () =>
+  const { data, isLoading, error } = useQuery(["pictures", currentDate], () =>
     getPicturesOfTheMonth(currentDate)
   )
-
-  const handleToggleModal = () => {
-    setIsModalOpen((prevState) => !prevState)
-  }
-
-  if (isFetching) return <Loader />
+  if (isLoading) return <Loader />
 
   if (error) return <p>Something went wrong...</p>
 
@@ -29,18 +20,8 @@ const Calendar = () => {
       {data?.length > 0 && (
         <ol className={styles.calendar}>
           <CalendarHeader />
-          <CalendarBody
-            handleToggleModal={handleToggleModal}
-            pictures={data}
-            setSelectedDay={setSelectedDay}
-          />
+          <CalendarBody pictures={data} />
         </ol>
-      )}
-      {isModalOpen && selectedDay && (
-        <DayModal
-          toggleModal={handleToggleModal}
-          dayData={data[selectedDay - 1]}
-        />
       )}
     </>
   )

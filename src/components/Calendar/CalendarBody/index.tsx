@@ -1,24 +1,24 @@
-import { Dispatch, SetStateAction } from "react"
+import { useState } from "react"
 import { useDate } from "@/contexts/DateContext"
 import { getMonthDaysArray } from "@/utils/utils"
-import Day from "./Day"
 import { PictureData } from "@/common/interfaces"
+import Day from "./Day"
+import DayModal from "../DayModal"
 
 interface CalendarBodyProps {
-  handleToggleModal: () => void
   pictures: PictureData[]
-  setSelectedDay: Dispatch<SetStateAction<number | null>>
 }
 
-const CalendarBody = ({
-  handleToggleModal,
-  pictures,
-  setSelectedDay
-}: CalendarBodyProps) => {
+const CalendarBody = ({ pictures }: CalendarBodyProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedDay, setSelectedDay] = useState<number | null>(null)
   const { currentDate } = useDate()
   const monthDaysArray = getMonthDaysArray(currentDate)
-
   const picturesUrls = pictures.map((picture) => picture.url)
+
+  const handleToggleModal = () => {
+    setIsModalOpen((prevState) => !prevState)
+  }
 
   return (
     <>
@@ -31,6 +31,12 @@ const CalendarBody = ({
           handleToggleModal={handleToggleModal}
         />
       ))}
+      {isModalOpen && selectedDay && (
+        <DayModal
+          toggleModal={handleToggleModal}
+          dayData={pictures[selectedDay - 1]}
+        />
+      )}
     </>
   )
 }
