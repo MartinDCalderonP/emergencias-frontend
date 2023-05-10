@@ -4,6 +4,9 @@
   align-items: center;
 }
 
-.icon {
-  cursor: pointer;
+.iconButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
 }

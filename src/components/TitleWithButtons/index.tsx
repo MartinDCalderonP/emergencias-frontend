@@ -16,11 +16,11 @@ const TitleWithButtons = () => {
 
   return (
     <div className={styles.container}>
-      <button className={styles.icon} onClick={handlePreviousMonth}>
+      <button className={styles.iconButton} onClick={handlePreviousMonth}>
         <BiChevronLeft />
       </button>
       <MonthTitle />
-      <button className={styles.icon} onClick={handleNextMonth}>
+      <button className={styles.iconButton} onClick={handleNextMonth}>
         <BiChevronRight />
       </button>
     </div>
