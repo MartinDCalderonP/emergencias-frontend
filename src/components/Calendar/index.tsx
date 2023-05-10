@@ -11,15 +11,15 @@ import Loader from "@/components/Loader"
 const Calendar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedDay, setSelectedDay] = useState<number | null>(null)
-  const { currentMonth } = useDate()
+  const { currentDate } = useDate()
   const { data, isFetching, error, refetch } = useQuery(
-    ["pictures", currentMonth],
-    () => getPicturesOfTheMonth(currentMonth)
+    ["pictures", currentDate],
+    () => getPicturesOfTheMonth(currentDate)
   )
 
   useEffect(() => {
     refetch()
-  }, [currentMonth, refetch])
+  }, [currentDate, refetch])
 
   const handleToggleModal = () => {
     setIsModalOpen((prevState) => !prevState)

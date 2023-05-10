@@ -15,8 +15,8 @@ const CalendarBody = ({
   pictures,
   setSelectedDay
 }: CalendarBodyProps) => {
-  const { currentMonth } = useDate()
-  const monthDaysArray = getMonthDaysArray(currentMonth)
+  const { currentDate } = useDate()
+  const monthDaysArray = getMonthDaysArray(currentDate)
 
   const picturesUrls = pictures.map((picture) => picture.url)
 

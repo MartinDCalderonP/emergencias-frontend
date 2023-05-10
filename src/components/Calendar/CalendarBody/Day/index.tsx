@@ -15,8 +15,8 @@ const Day = ({
   setSelectedDay,
   handleToggleModal
 }: DayProps) => {
-  const { currentMonth } = useDate()
-  const firstDayOfTheMonth = currentMonth.startOf("month").day()
+  const { currentDate } = useDate()
+  const firstDayOfTheMonth = currentDate.startOf("month").day()
   const gridColumnStart = day === 1 ? firstDayOfTheMonth : undefined
   const backgroundImage = pictureUrl ? `url(${pictureUrl})` : undefined
 

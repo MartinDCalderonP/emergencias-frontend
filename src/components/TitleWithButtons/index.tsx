@@ -4,14 +4,15 @@ import { BiChevronLeft, BiChevronRight } from "react-icons/bi"
 import MonthTitle from "./MonthTitle"
 
 const TitleWithButtons = () => {
-  const { currentMonth, setCurrentMonth } = useDate()
+  const { currentDate, setCurrentDate } = useDate()
 
   const handlePreviousMonth = () => {
-    setCurrentMonth(currentMonth.set("month", currentMonth.month() - 1))
+    setCurrentDate(currentDate.set("month", currentDate.month() - 1))
   }
 
   const handleNextMonth = () => {
-    setCurrentMonth(currentMonth.set("month", currentMonth.month() + 1))
+    if (currentDate.month() === 3 && currentDate.year() === 2023) return
+    setCurrentDate(currentDate.set("month", currentDate.month() + 1))
   }
 
   return (

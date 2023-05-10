@@ -5,24 +5,28 @@ import "dayjs/locale/es"
 dayjs.locale("es")
 
 type Context = {
-  currentMonth: dayjs.Dayjs
-  setCurrentMonth: (month: dayjs.Dayjs) => void
+  currentDate: dayjs.Dayjs
+  setCurrentDate: (month: dayjs.Dayjs) => void
 }
 
 export const DateContext = createContext<Context>({} as Context)
 
 export const DateProvider = ({ children }: { children: ReactNode }) => {
-  const [currentMonth, setCurrentMonth] = useState(dayjs("2023-02"))
+  const [currentDate, setCurrentDate] = useState(dayjs("2023-02"))
 
   return (
-    <DateContext.Provider value={{ currentMonth, setCurrentMonth }}>
+    <DateContext.Provider value={{ currentDate, setCurrentDate }}>
       {children}
     </DateContext.Provider>
   )
 }
 
 export const useDate = () => {
-  const { currentMonth, setCurrentMonth } = useContext(DateContext)
+  const { currentDate, setCurrentDate } = useContext(DateContext)
 
-  return { currentMonth, setCurrentMonth }
+  if (!currentDate || !setCurrentDate) {
+    throw new Error("useDate must be used within a DateProvider")
+  }
+
+  return { currentDate, setCurrentDate }
 }
