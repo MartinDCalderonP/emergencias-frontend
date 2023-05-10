@@ -2,20 +2,23 @@ import { Dispatch, SetStateAction } from "react"
 import { useDate } from "@/contexts/DateContext"
 import { getMonthDaysArray } from "@/utils/utils"
 import Day from "./Day"
+import { PictureData } from "@/common/interfaces"
 
 interface CalendarBodyProps {
   handleToggleModal: () => void
-  picturesUrls: string[]
+  pictures: PictureData[]
   setSelectedDay: Dispatch<SetStateAction<number | null>>
 }
 
 const CalendarBody = ({
   handleToggleModal,
-  picturesUrls,
+  pictures,
   setSelectedDay
 }: CalendarBodyProps) => {
   const { currentMonth } = useDate()
   const monthDaysArray = getMonthDaysArray(currentMonth)
+
+  const picturesUrls = pictures.map((picture) => picture.url)
 
   return (
     <>
