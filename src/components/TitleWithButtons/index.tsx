@@ -7,6 +7,7 @@ const TitleWithButtons = () => {
   const { currentDate, setCurrentDate } = useDate()
 
   const handlePreviousMonth = () => {
+    if (currentDate.month() === 4 && currentDate.year() === 1995) return
     setCurrentDate(currentDate.set("month", currentDate.month() - 1))
   }
 
