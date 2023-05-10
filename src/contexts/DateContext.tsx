@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext, useState } from "react"
+import { createContext, ReactNode, useContext, useReducer } from "react"
+import reducer, { Action, initialState } from "./reducer"
 import dayjs from "dayjs"
 import "dayjs/locale/es"
 
@@ -6,13 +7,17 @@ dayjs.locale("es")
 
 type Context = {
   currentDate: dayjs.Dayjs
-  setCurrentDate: (month: dayjs.Dayjs) => void
+  setCurrentDate: (action: Action) => void
 }
 
 export const DateContext = createContext<Context>({} as Context)
 
-export const DateProvider = ({ children }: { children: ReactNode }) => {
-  const [currentDate, setCurrentDate] = useState(dayjs("2023-02"))
+interface DateProviderProps {
+  children: ReactNode
+}
+
+export const DateProvider = ({ children }: DateProviderProps) => {
+  const [currentDate, setCurrentDate] = useReducer(reducer, initialState)
 
   return (
     <DateContext.Provider value={{ currentDate, setCurrentDate }}>
