@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import styles from "./styles.module.css"
 import { useDate } from "@/contexts/DateContext"
 import { useQuery } from "react-query"
@@ -12,14 +12,9 @@ const Calendar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedDay, setSelectedDay] = useState<number | null>(null)
   const { currentDate } = useDate()
-  const { data, isFetching, error, refetch } = useQuery(
-    ["pictures", currentDate],
-    () => getPicturesOfTheMonth(currentDate)
+  const { data, isFetching, error } = useQuery(["pictures", currentDate], () =>
+    getPicturesOfTheMonth(currentDate)
   )
-
-  useEffect(() => {
-    refetch()
-  }, [currentDate, refetch])
 
   const handleToggleModal = () => {
     setIsModalOpen((prevState) => !prevState)
