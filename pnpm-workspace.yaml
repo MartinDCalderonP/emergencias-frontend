@@ -1,4 +1,6 @@
 overrides:
+  '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
+  '@modelcontextprotocol/sdk@>=1.10.0 <=1.25.3': '>=1.26.0'
   next@>=0.9.9 <13.4.20-canary.13: '>=13.4.20-canary.13'
   next@>=0.9.9 <14.2.24: '>=14.2.24'
   next@>=0.9.9 <14.2.31: '>=14.2.31'
