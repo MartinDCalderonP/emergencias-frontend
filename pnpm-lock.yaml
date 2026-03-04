@@ -6,6 +6,8 @@ settings:
 
 overrides:
   '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
+  '@hono/node-server@<1.19.10': '>=1.19.10'
+  hono@<4.12.4: '>=4.12.4'
 
 importers:
 
@@ -119,11 +121,11 @@ packages:
     resolution: {integrity: sha512-bIZEUzOI1jkhviX2cp5vNyXQc6olzb2ohewQubuYlMXZ2Q/XjBO0x0XhGPvc9fjSIiUN0vw+0hq53BJ4eQSJKQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@hono/node-server@1.19.9':
-    resolution: {integrity: sha512-vHL6w3ecZsky+8P5MD+eFfaGTyCeOHUIFYMGpQGbrBTSmNNoxv0if69rEZ5giu36weC5saFuznL411gRX7bJDw==}
+  '@hono/node-server@1.19.10':
+    resolution: {integrity: sha512-hZ7nOssGqRgyV3FVVQdfi+U4q02uB23bpnYpdvNXkYTRRyWx84b7yf1ans+dnJ/7h41sGL3CeQTfO+ZGxuO+Iw==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
-      hono: ^4
+      hono: '>=4.12.4'
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1297,8 +1299,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.12.2:
-    resolution: {integrity: sha512-gJnaDHXKDayjt8ue0n8Gs0A007yKXj4Xzb8+cNjZeYsSzzwKc0Lr+OZgYwVfB0pHfUs17EPoLvrOsEaJ9mj+Tg==}
+  hono@4.12.5:
+    resolution: {integrity: sha512-3qq+FUBtlTHhtYxbxheZgY8NIFnkkC/MR8u5TTsr7YZ3wixryQ3cCwn3iZbg8p8B88iDBBAYSfZDS75t8MN7Vg==}
     engines: {node: '>=16.9.0'}
 
   http-errors@2.0.1:
@@ -2293,9 +2295,9 @@ snapshots:
       '@eslint/core': 1.1.0
       levn: 0.4.1
 
-  '@hono/node-server@1.19.9(hono@4.12.2)':
+  '@hono/node-server@1.19.10(hono@4.12.5)':
     dependencies:
-      hono: 4.12.2
+      hono: 4.12.5
 
   '@humanfs/core@0.19.1': {}
 
@@ -2417,7 +2419,7 @@ snapshots:
 
   '@modelcontextprotocol/sdk@1.26.0(zod@3.25.76)':
     dependencies:
-      '@hono/node-server': 1.19.9(hono@4.12.2)
+      '@hono/node-server': 1.19.10(hono@4.12.5)
       ajv: 8.18.0
       ajv-formats: 3.0.1(ajv@8.18.0)
       content-type: 1.0.5
@@ -2427,7 +2429,7 @@ snapshots:
       eventsource-parser: 3.0.6
       express: 5.2.1
       express-rate-limit: 8.2.1(express@5.2.1)
-      hono: 4.12.2
+      hono: 4.12.5
       jose: 6.1.3
       json-schema-typed: 8.0.2
       pkce-challenge: 5.0.1
@@ -3113,12 +3115,12 @@ snapshots:
       eslint: 8.57.1
       eslint-plugin-react: 7.37.5(eslint@8.57.1)
 
-  eslint-config-standard-with-typescript@23.0.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.26.0)(typescript@5.0.4))(eslint@8.57.1)(typescript@5.0.4))(eslint-plugin-import@2.32.0)(eslint-plugin-n@15.7.0(eslint@8.57.1))(eslint-plugin-promise@6.6.0(eslint@8.57.1))(eslint@8.57.1)(typescript@5.0.4):
+  eslint-config-standard-with-typescript@23.0.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.26.0)(typescript@5.0.4))(eslint@8.57.1)(typescript@5.0.4))(eslint-plugin-import@2.32.0)(eslint-plugin-n@15.7.0(eslint@9.26.0))(eslint-plugin-promise@6.6.0(eslint@9.26.0))(eslint@8.57.1)(typescript@5.0.4):
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.26.0)(typescript@5.0.4))(eslint@9.26.0)(typescript@5.0.4)
       '@typescript-eslint/parser': 5.62.0(eslint@8.57.1)(typescript@5.0.4)
       eslint: 8.57.1
-      eslint-config-standard: 17.0.0(eslint-plugin-import@2.32.0)(eslint-plugin-n@15.7.0(eslint@8.57.1))(eslint-plugin-promise@6.6.0(eslint@8.57.1))(eslint@8.57.1)
+      eslint-config-standard: 17.0.0(eslint-plugin-import@2.32.0)(eslint-plugin-n@15.7.0(eslint@9.26.0))(eslint-plugin-promise@6.6.0(eslint@9.26.0))(eslint@8.57.1)
       eslint-plugin-import: 2.32.0(@typescript-eslint/parser@5.62.0(eslint@9.26.0)(typescript@5.0.4))(eslint@9.26.0)
       eslint-plugin-n: 15.7.0(eslint@8.57.1)
       eslint-plugin-promise: 6.6.0(eslint@8.57.1)
@@ -3126,7 +3128,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-config-standard@17.0.0(eslint-plugin-import@2.32.0)(eslint-plugin-n@15.7.0(eslint@8.57.1))(eslint-plugin-promise@6.6.0(eslint@8.57.1))(eslint@8.57.1):
+  eslint-config-standard@17.0.0(eslint-plugin-import@2.32.0)(eslint-plugin-n@15.7.0(eslint@9.26.0))(eslint-plugin-promise@6.6.0(eslint@9.26.0))(eslint@8.57.1):
     dependencies:
       eslint: 8.57.1
       eslint-plugin-import: 2.32.0(@typescript-eslint/parser@5.62.0(eslint@9.26.0)(typescript@5.0.4))(eslint@9.26.0)
@@ -3753,7 +3755,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.12.2: {}
+  hono@4.12.5: {}
 
   http-errors@2.0.1:
     dependencies:
@@ -4607,7 +4609,7 @@ snapshots:
       '@typescript-eslint/parser': 5.62.0(eslint@8.57.1)(typescript@5.0.4)
       eslint: 8.57.1
       eslint-config-standard-jsx: 11.0.0(eslint-plugin-react@7.37.5(eslint@9.26.0))(eslint@8.57.1)
-      eslint-config-standard-with-typescript: 23.0.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.26.0)(typescript@5.0.4))(eslint@8.57.1)(typescript@5.0.4))(eslint-plugin-import@2.32.0)(eslint-plugin-n@15.7.0(eslint@8.57.1))(eslint-plugin-promise@6.6.0(eslint@8.57.1))(eslint@8.57.1)(typescript@5.0.4)
+      eslint-config-standard-with-typescript: 23.0.0(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.26.0)(typescript@5.0.4))(eslint@8.57.1)(typescript@5.0.4))(eslint-plugin-import@2.32.0)(eslint-plugin-n@15.7.0(eslint@9.26.0))(eslint-plugin-promise@6.6.0(eslint@9.26.0))(eslint@8.57.1)(typescript@5.0.4)
       eslint-plugin-import: 2.32.0(@typescript-eslint/parser@5.62.0(eslint@9.26.0)(typescript@5.0.4))(eslint@9.26.0)
       eslint-plugin-n: 15.7.0(eslint@8.57.1)
       eslint-plugin-promise: 6.6.0(eslint@8.57.1)
