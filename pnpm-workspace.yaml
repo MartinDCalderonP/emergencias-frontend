@@ -1,5 +1,4 @@
 overrides:
   '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
-  hono@<4.12.16: '>=4.12.16'
   ip-address@<=10.1.0: '>=10.1.1'
   postcss@<8.5.10: '>=8.5.10'
