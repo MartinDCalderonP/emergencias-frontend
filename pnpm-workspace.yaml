@@ -1,5 +1,12 @@
+minimumReleaseAgeExclude:
+  - '@eslint/plugin-kit@0.3.4'
+  - postcss@8.5.10
+  - ip-address@10.1.1
+  - qs@6.15.2
+  - hono@4.12.21
 overrides:
-  '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
-  ip-address@<=10.1.0: '>=10.1.1'
-  postcss@<8.5.10: '>=8.5.10'
-  qs@>=6.11.1 <=6.15.1: '>=6.15.2'
+  '@eslint/plugin-kit@<0.3.4': ^0.3.4
+  hono@<4.12.21: ^4.12.21
+  ip-address@<=10.1.0: ^10.1.1
+  postcss@<8.5.10: ^8.5.10
+  qs@>=6.11.1 <=6.15.1: ^6.15.2
