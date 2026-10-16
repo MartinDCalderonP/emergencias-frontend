@@ -1,16 +1,4 @@
-minimumReleaseAgeExclude:
-  - brace-expansion@1.1.19 || 1.1.20 || 1.1.21
-  - next@16.3.6 || 16.3.8
-  - braces@3.0.4
-  - source-map-js@1.2.2
-  - sharp@0.35.5
+allowBuilds:
+  unrs-resolver: true
 overrides:
-  brace-expansion@<1.1.19: ^1.1.19
-  brace-expansion@<1.1.20: ^1.1.20
-  brace-expansion@<1.1.21: ^1.1.21
-  braces@<=3.0.3: ^3.0.4
-  next@>=16.0.0 <16.3.8: ^16.3.8
-  next@>=16.2.0 <16.3.6: ^16.3.6
-  next@>=16.3.0 <16.3.8: ^16.3.8
-  sharp@<0.35.5: ^0.35.5
-  source-map-js@>=1.0.0 <1.2.2: ^1.2.2
+  minimatch@>=9.0.0 <9.0.7: ^9.0.7
